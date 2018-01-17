@@ -46,13 +46,11 @@ https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
 
 ## Example Routes
 
-![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes-updated.png)
+![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-updated-routes.png)
 
 ## MVP User Stories
 
 As a user, I should be able to look up a musculoskeletal disorder and receive a list of massage techniques for addressing that condition and a description of the disorder.
-
-As a user, I should be able to look up a muscle and see it's OIAs (Origin, Insertion, and Action).
 
 As a user, I should be able to login to the site.
 
