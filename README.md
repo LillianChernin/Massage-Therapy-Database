@@ -10,6 +10,10 @@ knowledge base to help massage therapists in training learn techniques and devel
 a firmer understanding of the basic kinesiology and anatomy that massage techniques
 are based on.  
 
+## Link to Project Trello:
+
+https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
+
 ## Prototype Main Screen
 
 ![example main screen](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-main-homepage.jpg)
