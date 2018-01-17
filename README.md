@@ -46,7 +46,7 @@ https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
 
 ## Example Routes
 
-![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes/png)
+![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes.png)
 
 ## MVP User Stories
 
