@@ -1,0 +1,37 @@
+{
+  "name": "unit-2-mt-database",
+  "version": "1.0.0",
+  "description": "Massage Therapy Database",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LillianChernin/Massage-Therapy-Database.git"
+  },
+  "keywords": [
+    "massage",
+    "therapy",
+    "database"
+  ],
+  "author": "Lillian Chernin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LillianChernin/Massage-Therapy-Database/issues"
+  },
+  "homepage": "https://github.com/LillianChernin/Massage-Therapy-Database#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7"
+  }
+}
