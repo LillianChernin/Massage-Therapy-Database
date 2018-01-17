@@ -14,6 +14,16 @@ are based on.
 
 https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
 
+## Technologies
+
+- Node.js
+- Express
+- EJS and HTML
+- CSS
+- JavaScript and JQuery
+- MongoDB and Mongoose
+- OAuth
+
 ## Prototype Main Screen
 
 ![example main screen](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-main-homepage.jpg)
@@ -33,6 +43,10 @@ https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
 ## Entity Relationship Diagram
 
 ![massage therapy database ERD](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/MTD-ERD.jpg)
+
+## Example Routes
+
+![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes/png)
 
 ## MVP User Stories
 
