@@ -46,7 +46,7 @@ https://trello.com/b/xpPg37MV/unit-2-project-massage-therapy-database
 
 ## Example Routes
 
-![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes.png)
+![example routes for disorder resources](https://github.com/LillianChernin/Massage-Therapy-Database/blob/master/docs/assets/images/mtd-routes-updated.png)
 
 ## MVP User Stories
 
@@ -57,3 +57,8 @@ As a user, I should be able to look up a muscle and see it's OIAs (Origin, Inser
 As a user, I should be able to login to the site.
 
 As a user with correct access, I should be able to add/edit/delete massage techniques.
+
+## Stretch Goals User Stories
+
+As a user, I should be able to add comments to a massage technique to give feedback on
+effectiveness or alternate ways of doing it.
