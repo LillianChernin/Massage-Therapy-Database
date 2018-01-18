@@ -1,0 +1,34 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header-header {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.techniques-main-header, .disorders-main-header {
+  padding-top: 25px;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+}
+
+.header-title {
+  font-family: 'Muli', sans-serif;
+  font-size: 28px;
+  padding-left: 15px;
+}
+
+.header-logOrSignup {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  right: 50px;
+  align: right;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.main-page-title, .main-page-nav {
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+}

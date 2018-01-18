@@ -2,13 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><% documentTitle %></title>
-    <link rel="stylesheet" type="text/css" href="./static/css/styles.css">
+    <title><%= documentTitle %></title>
+    <link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
   </head>
   <body>
-    <header>
+    <header class="header-header">
       <span class="header-title"><a href="http://localhost:3000">MT Database</a></span>
-      <span class="header-log"><a href="http://localhost:3000/login">log in</a></span>
-      <span> | </span>
-      <span class="header-signup"><a href="http://localhost:3000/join">join</a></span>
+      <span class="header-logOrSignup">
+        <span class="header-log"><a href="http://localhost:3000/login">log in</a></span>
+        <span> | </span>
+        <span class="header-signup"><a href="http://localhost:3000/join">join</a></span>
+      </span>
     </header>
