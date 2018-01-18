@@ -1,7 +1,35 @@
 
 
-    <div class="signupDialog" title="Join MT Database">
-      <p>Test Dialog</p>
+    <div class="signupDialog hidden" title="Join MT Database">
+      <fieldset>
+        <button class="googleSignUp">Sign Up with Google</button>
+        <button class="facebookSignUp">Sign Up with Facebook</button>
+      </fieldset>
+      <form class="signupForm">
+        <fieldset>
+          <label for="name">Name</label>
+          <input type="text" name="name" placeholder="Your Name">
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Your Email">
+          <p>Password must be at least 8 characters long and contain both numbers and letters</p>
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="xxxxxxxx">
+          <label for="reEnterPassword">Re-Enter Password</label>
+          <input type="password" name="reEnterPassword" placeholder="xxxxxxxx">
+          <button class="signUpButton">Sign Up</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="loginDialog hidden" title="Login">
+      <form>
+        <fieldset>
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Your Email">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="xxxxxxxx">
+          <button class="loginButton">Log In</button>
+        </fieldset>
+      </form>
     </div>
     <footer>
       <p class="footerInfo">Created by Lillian Chernin</p>

@@ -8,7 +8,7 @@ a {
   padding-bottom: 10px;
   padding-top: 10px;
 }
-.techniques-main-header, .disorders-main-header {
+.main-header {
   padding-top: 25px;
   font-family: 'Muli', sans-serif;
   text-align: center;
@@ -31,4 +31,8 @@ a {
 .main-page-title, .main-page-nav {
   font-family: 'Muli', sans-serif;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
