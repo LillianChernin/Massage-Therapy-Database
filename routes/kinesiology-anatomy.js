@@ -15,9 +15,16 @@ kaRoutes.get('/bones', (req, res) => {
 })
 
 kaRoutes.get('/muscles', (req, res) => {
-  res.render('./kinesiology-anatomy/muscles', {
-    documentTitle: "Muscles"
+  db.Muscle.find((err, muscles) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.render('./kinesiology-anatomy/muscles', {
+      documentTitle: "Muscles",
+      data: muscles
+    })
   })
+
 })
 
 module.exports = kaRoutes;

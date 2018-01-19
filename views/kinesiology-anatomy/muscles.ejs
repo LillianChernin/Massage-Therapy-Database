@@ -2,30 +2,30 @@
 
 <% for (let i = 0; i < data.length; i++) { %>
 <div class="muscleDisplayBox">
-  <h2>data[i].name</h2>
-  <img src="<%= data[i].image %>">
+  <h2><%= data[i].name %></h2>
+  <img src="<%= data[i].image %>" height="300" width="250">
   <h3>Origins</h3>
   <ul>
     <% for (let k = 0; k < data[i].origins.length; k++) { %>
-      <li><%= data[i].origins[k] %></li>
+      <li class="muscleAttributes"><%= data[i].origins[k] %></li>
   <% } %>
   </ul>
   <h3>Insertions</h3>
   <ul>
     <% for (let k = 0; k < data[i].insertions.length; k++) { %>
-      <li><%= data[i].insertions[k] %></li>
+      <li class="muscleAttributes"><%= data[i].insertions[k] %></li>
   <% } %>
   </ul>
   <h3>Actions</h3>
   <ul>
     <% for (let k = 0; k < data[i].actions.length; k++) { %>
-      <li><%= data[i].actions[k] %></li>
+      <li class="muscleAttributes"><%= data[i].actions[k] %></li>
   <% } %>
   </ul>
   <h3>Nerves</h3>
   <ul>
     <% for (let k = 0; k < data[i].nerves.length; k++) { %>
-      <li><%= data[i].nerves[k] %></li>
+      <li class="muscleAttributes"><%= data[i].nerves[k] %></li>
   <% } %>
   </ul>
 </div>

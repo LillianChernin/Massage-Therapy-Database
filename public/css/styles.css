@@ -80,6 +80,19 @@ a {
   display: inline-block;
   font-family: 'Muli', sans-serif;
 }
+
+.muscleDisplayBox {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 60%;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+.muscleAttributes {
+  display: block;
+  text-transform: capitalize;
+}
 footer {
  font-family: 'Muli', sans-serif;
  border-top: 2px solid #2b65d1;
