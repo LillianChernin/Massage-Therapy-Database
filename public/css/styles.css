@@ -71,6 +71,15 @@ a {
   text-align: center;
 }
 
+.kaIndexMainLinks {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.kaIndexMainLink {
+  display: inline-block;
+  font-family: 'Muli', sans-serif;
+}
 footer {
  font-family: 'Muli', sans-serif;
  border-top: 2px solid #2b65d1;
