@@ -6,7 +6,8 @@ const disorderSchema = new Schema ({
   name: String,
   description: String,
   cautions: String,
-  techniques: [Technique.Schema]
+  techniques: [Technique.Schema],
+  category: String
 });
 
 const Disorder = mongoose.model('Disorder', disorderSchema);

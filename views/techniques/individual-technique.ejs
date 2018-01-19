@@ -16,7 +16,7 @@
     </form>
   </div>
   <% if (data.comments.length > 0) { %>
-    for (let i = 0; i < data.comments.length; i++) { %>
+  <%  for (let i = 0; i < data.comments.length; i++) { %>
       <div class="commentBox">
         <h5 class="commentHeader"><%= data.comments[i].userName %> - <%= data.comments[i].date %></h5>
         <p class="comment"><%= data.comments[i].comment</p>

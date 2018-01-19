@@ -1,5 +1,6 @@
 const express = require('express');
 const kaRoutes = express.Router();
+const db = require('../models');
 
 kaRoutes.get('/', (req, res) => {
   res.render('./kinesiology-anatomy/index', {

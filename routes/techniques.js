@@ -1,5 +1,6 @@
 const express = require('express');
 const techniqueRoutes = express.Router();
+const db = require('../models');
 
 techniqueRoutes.get('/', (req, res) => {
   res.render('./techniques/index', {
