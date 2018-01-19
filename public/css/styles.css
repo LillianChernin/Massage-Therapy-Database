@@ -33,6 +33,23 @@ a {
   text-align: center;
 }
 
+.disorderDisplayBox {
+  width: 30%;
+  display: inline-block;
+  border: 2px solid black;
+  text-align: center;
+  padding: 6px;
+}
+
+.footerNav {
+  text-align: center;
+}
+
+.footerLinkGroup {
+  width: 25%;
+  display: inline-block;
+}
+
 .hidden {
   display: none;
 }

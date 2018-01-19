@@ -1,8 +1,12 @@
 <% include ../partials/header.ejs %>
 
 <% for(let i = 0; i < data.length; i++) { %>
-  <p><%= data[i].name %></p>
-  <p><%= data[i].description %></p>
+  <div class="disorderDisplayBox">
+    <h4><%= data[i].name %></h4>
+    <p><%= data[i].description %></p>
+    <button>Full Description</button>
+    <button>Techniques</button>
+  </div>
 <% } %>
 
 <% include ../partials/footer.ejs %>
