@@ -17,7 +17,7 @@ disorderRoutes.get('/', (req, res) => {
 })
 
 disorderRoutes.get('/:id', (req, res) => {
-  let currentId = req.params.id
+  let currentId = req.params.id;
   db.Disorder.findById({currentId}, (err, disorder) => {
     res.render('./disorders/individual-disorder', {
       documentTitle: disorder.name,
@@ -31,6 +31,16 @@ disorderRoutes.get('/:category', (req, res) => {
     res.render('./disorders/disorders-by-category', {
       documentTitle: req.params.category,
       data: disorders
+    })
+  })
+})
+
+disorderRoutes.get('/:id/techniques', (req, res) => {
+  let currentId = req.params.id;
+  db.Disorder.findById({currentId}, (err, disorder) => {
+    res.render('./disorders/techniques-by-disorder-id', {
+      documentTitle: disorder.name + ' - Techniques',
+      data: disorder
     })
   })
 })

@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+
+<% if (data.techniques.length > 0) { %>
+  <% for (let i = 0; i < data.techniques.length; i++) { %>
+    <h3><a href="http://localhost:3000/techniques/<%= data.techniques[i]._id %>"><%= data.techniques[i].shortDescription %></a></h3>
+    <p><%= data.techniques[i].detailedDescription %></p>
+  <% } %>
+<% } else { %>
+   <h3>No techniques have been entered for this musculoskeletal disorder yet.</h3>
+<% } %>
+
+<% include ../partials/footer %>
