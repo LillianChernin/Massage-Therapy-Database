@@ -1,5 +1,76 @@
 const db = require('./models');
 
+const commentList = [
+  {
+    userName: "John Doe",
+    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas tempus leo in gravida.",
+    date: "Jan 19 2018"
+  },{
+    userName: "Jane Doe",
+    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas tempus leo in gravida.",
+    date: "Jan 21 2018"
+  },{
+    userName: "Josh Doe",
+    comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas tempus leo in gravida.",
+    date: "Jan 23 2018"
+  }
+]
+
+const techniqueList = [
+  {
+    shortDescription: "Effleurage of whole back",
+    detailedDescription: "Two-handed effleurage of whole back to warm skin and superficial muscles."
+  },
+  {
+    shortDescription: "Petrissage of trapezius",
+    detailedDescription: "Two-handed petrissage of upper trapezius."
+  },
+  {
+    shortDescription: "Deep longitudinal stripping to spinal extensors",
+    detailedDescription: "Deep stripping techniques are applied to the erector spinae and spinal extensor muscles."
+  }
+]
+
+for (let i = 0; i < techniqueList.length; i++) {
+  techniqueList[i].approved = true;
+  techniqueList[i].comments = commentList;
+}
+
+const disorderList = [
+  {name: "Morton's neuroma", category: "foot, ankle, and lower leg"},
+  {name: "Plantar fasciitis", category: "foot, ankle, and lower leg"},
+  {name: "Shin splints", category: "foot, ankle, and lower leg"},
+  {name: "Meniscal injury", category: "knee and thigh"},
+  {name: "Hamstring strains", category: "knee and thigh"},
+  {name: "Adductor strains", category: "knee and thigh"},
+  {name: "Piriformis syndrome", category: "hip and pelvis"},
+  {name: "Sacroiliac joint dysfunction", category: "hip and pelvis"},
+  {name: "Trochanteric bursitis", category: "hip and pelvis"},
+  {name: "Neuromuscular low back pain", category: "lumbar and thoracic spine"},
+  {name: "Herniated nucleus pulposus", category: "lumbar and thoracic spine"},
+  {name: "Zygapophysial (facet) joint irritation", category: "lumbar and thoracic spine"},
+  {name: "Spondylolysis and spondylolisthesis", category: "lumbar and thoracic spine"},
+  {name: "Neuromuscular neck pain", category: "cervical spine"},
+  {name: "Herniated nucleus pulposus", category: "cervical spine"},
+  {name: "Thoracic outlet syndrome", category: "cervical spine"},
+  {name: "Frozen shoulder (adhesive capsulitis)", category: "shoulder"},
+  {name: "Rotator cuff strain", category: "shoulder"},
+  {name: "Subacromial bursitis", category: "shoulder"},
+  {name: "Lateral epicondylitis (tennis elbow)", category: "elbow, forearm, wrist and hand"},
+  {name: "Medial epicondylitis (golfer's elbow)", category: "elbow, forearm, wrist and hand"},
+  {name: "Carpal tunnel syndrome", category: "elbow, forearm, wrist and hand"}
+]
+
+const dummyDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet venenatis lorem, sed porttitor risus tincidunt in. Praesent varius a ex eget aliquet. Curabitur fringilla, nisl id feugiat dictum, massa sem dignissim neque, eu condimentum dui mauris vitae enim. Etiam ultrices erat at euismod pellentesque. Ut non lectus vitae quam elementum molestie vel eget mauris. Aliquam id vehicula mauris. Aliquam arcu metus, pharetra vitae enim at, egestas rhoncus lectus. Fusce tristique turpis id nibh pharetra lobortis. Proin odio orci, sodales ut faucibus tincidunt, ornare a sem. Fusce at mollis lacus.";
+
+const dummyCautions = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas tempus leo in gravida. Cras vel dolor felis. Donec eu.";
+
+for (let i = 0; i < disorderList.length; i++) {
+  disorderList[i].description = dummyDescription;
+  disorderList[i].cautions = dummyCautions;
+  disorderList[i].techniques = techniqueList;
+}
+
 
 const muscleList = [
   {
@@ -200,7 +271,18 @@ db.Muscle.remove({}, (err, muscles) => {
       return console.log('ERROR ' + err);
     }
     console.log("all muscles: " + muscles);
-    console.log("created " + muscles.length + "muscles");
+    console.log("created " + muscles.length + " muscles");
+    process.exit();
+  })
+})
+
+db.Disorder.remove({}, (err, disorders) => {
+  db.Disorder.create(disorderList, (err, disorders) => {
+    if (err) {
+      return console.log('ERROR ' + err);
+    }
+    console.log("all disorders: " + disorders);
+    console.log("created " + disorders.length + " disorders");
     process.exit();
   })
 })

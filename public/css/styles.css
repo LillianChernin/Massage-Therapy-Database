@@ -93,9 +93,12 @@ a {
   display: block;
   text-transform: capitalize;
 }
+
+.individualDisorderHeaderLinks {
+  text-align: center;
+}
 footer {
  font-family: 'Muli', sans-serif;
- border-top: 2px solid #2b65d1;
  position:fixed;
  bottom: 0;
  left: 0;

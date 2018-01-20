@@ -1,5 +1,6 @@
 <% include ../partials/header %>
 
+<h3 class="individualDisorderHeaderLinks"><span><a href="http://localhost:3000/disorders/<%= data._id %>">Description</a></span><span> | </span><span>Techniques</span></h3>
 <% if (data.techniques.length > 0) { %>
   <% for (let i = 0; i < data.techniques.length; i++) { %>
     <h3><a href="http://localhost:3000/techniques/<%= data.techniques[i]._id %>"><%= data.techniques[i].shortDescription %></a></h3>
