@@ -6,6 +6,66 @@ const bodyParser = require('body-parser');
 apiRoutes.use(bodyParser.json());
 apiRoutes.use(bodyParser.urlencoded({ extended: true }));
 
+apiRoutes.get('/disorders', (req, res) => {
+  db.Disorder.find((err, disorders) => {
+    res.json(disorders);
+  })
+})
+
+apiRoutes.get('/disorders/:id', (req, res) => {
+  db.Disorder.findById(req.params.id, (err, disorder) => {
+    res.json(disorder);
+  })
+})
+
+apiRoutes.get('/disorders/:id/techniques', (req, res) => {
+  db.Disorder.findById(req.params.id, (err, disorder) => {
+    res.json(disorder.techniques);
+  })
+})
+
+apiRoutes.get('/disorders/:id/techniques/:technique_id', (req, res) => {
+  db.Technique.findById(req.params.technique_id, (err, technique) => {
+    res.json(technique);
+  })
+})
+
+apiRoutes.get('/disorders/:id/techniques/:technique_id/comments', (req, res) => {
+  db.Technique.findById(req.params.technique_id, (err, technique) => {
+    res.json(technique.comments);
+  })
+})
+
+apiRoutes.get('/muscles', (req, res) => {
+  db.Muscle.find((err, muscles) => {
+    res.json(muscles);
+  })
+})
+
+apiRoutes.get('/muscles/:id', (req, res) => {
+  db.Muscle.findById(req.params.id, (err, muscle) => {
+    res.json(muscle);
+  })
+})
+
+apiRoutes.get('/techniques', (req, res) => {
+  db.Technique.find((err, techniques) => {
+    res.json(techniques);
+  })
+})
+
+apiRoutes.get('/techniques/:id', (req, res) => {
+  db.Technique.findById(req.params.id, (err, technique) => {
+    res.json(technique);
+  })
+})
+
+apiRoutes.get('/techniques/:id/comments', (req, res) => {
+  db.Technique.findById(req.params.id, (err, technique) => {
+    res.json(technique.comments);
+  })
+})
+
 
 apiRoutes.post('/disorders/:disorder_id/techniques', (req, res) => {
   let newTechnique = new db.Technique(req.body);
