@@ -4,8 +4,12 @@
 <div class="individualDisorderTechniquesDisplay">
   <% if (data.techniques.length > 0) { %>
     <% for (let i = 0; i < data.techniques.length; i++) { %>
-      <h3><a href="http://localhost:3000/disorders/<%= data._id %>/techniques/<%= data.techniques[i]._id %>"><%= data.techniques[i].shortDescription %></a></h3>
-      <p><%= data.techniques[i].detailedDescription %></p>
+    <fieldset>
+      <h3><a href="http://localhost:3000/disorders/<%= data._id %>/techniques/<%= data.techniques[i]._id %>"><%= data.techniques[i].shortDescription %></a><span class="hidden updateTechniqueShortDescription"><input type="text"></span></h3>
+      <p><%= data.techniques[i].detailedDescription %><span class="hidden updateTechniqueDetailedDescription"><input type="text"></span></p>
+      <button class="updateTechniqueButton" data-techniqueId="<%= data.techniques[i]._id %>">Edit Technique</button>
+      <button class="deleteTechniqueButton" data-techniqueId="<%= data.techniques[i]._id %>">Delete Technique</button>
+    </fieldset>
     <% } %>
   <% } else { %>
      <h3>No techniques have been entered for this musculoskeletal disorder yet.</h3>

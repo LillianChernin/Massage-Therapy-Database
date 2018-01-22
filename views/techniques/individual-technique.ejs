@@ -7,13 +7,12 @@
 <p><%= data.detailedDescription %></p>
 <fieldset>
   <h4>Comments</h4>
-  <p class="requireLogout">Login to add a comment</p>
-  <div class="hidden requireLogin">
-    <form class="addCommentForm">
-      <label for="commentInputField"></label>
-      <textarea placeholder="Your comment" name="commentInputField"></textarea>
-      <button>Post Comment</button>
-    </form>
+  <p class="hidden requireLogout">Login to add a comment</p>
+  <div class="requireLogin">
+    <fieldset class="addCommentForm">
+      <textarea rows="3" cols="40" placeholder="Enter coment here" name="commentInputField"></textarea>
+      <button class="postNewCommentButton" data-techniqueId="<%= data._id %>">Post Comment</button>
+    </fieldset>
   </div>
   <% if (data.comments.length > 0) { %>
   <%  for (let k = 0; k < data.comments.length; k++) { %>

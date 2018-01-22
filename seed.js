@@ -68,7 +68,6 @@ const dummyCautions = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 for (let i = 0; i < disorderList.length; i++) {
   disorderList[i].description = dummyDescription;
   disorderList[i].cautions = dummyCautions;
-  disorderList[i].techniques = techniqueList;
 }
 
 

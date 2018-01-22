@@ -63,8 +63,9 @@ disorderRoutes.get('/:id/techniques/:technique_id', (req, res) => {
 
 disorderRoutes.post('/api/:id/techniques', (req, res) => {
   let newTechnique = new db.Technique(req.body);
+  newTechnique.save();
   db.Disorder.findByIdAndUpdate(req.params.id,
-  {$push: {techniques: req.body}},
+  {$push: {techniques: newTechnique}},
   {safe: true, upsert: true, new: true}, (err, disorder) => {
     if (err) {
       res.status(500).send(err);
@@ -75,5 +76,6 @@ disorderRoutes.post('/api/:id/techniques', (req, res) => {
     })
   })
 })
+
 
 module.exports = disorderRoutes;
