@@ -12,6 +12,7 @@ const findOrCreate = require('mongoose-findorcreate');
 const disorderRoutes = require('./routes/disorders');
 const techniqueRoutes = require('./routes/techniques');
 const kaRoutes = require('./routes/kinesiology-anatomy');
+const apiRoutes = require('./routes/api');
 
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -27,6 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/disorders', disorderRoutes);
 app.use('/techniques', techniqueRoutes);
 app.use('/kinesiology-anatomy', kaRoutes);
+app.use('/api', apiRoutes);
 
 app.get('/', (req, res) => {
   res.render('index', {

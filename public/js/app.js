@@ -13,14 +13,42 @@ $(document).ready(() => {
   $('.postNewCommentButton').on('click', (e) => {
     handlePostNewCommentButton(e);
   })
+  $('.updateTechniqueButton').on('click', (e) => {
+    console.log(e);
+    enterEditTechniqueMode(e);
+
+  })
+  $('.deleteTechniqueButton').on('click', (e) => {
+    handleDeleteTechniqueButton(e);
+  })
 })
+
+const enterEditTechniqueMode = (e) => {
+  // e.target.parentNode.childNodes[1].classList.add('hidden');
+  // e.target.parentNode.childNodes[3].classList.add('hidden');
+  e.target.parentNode.childNodes[2].classList.remove('hidden');
+  e.target.parentNode.childNodes[5].classList.remove('hidden');
+  $.ajax({
+    method: "GET",
+
+  })
+}
+
+const handleUpdateTechniqueButton = (e) => {
+
+}
+
+const handleDeleteTechniqueButton = (e) => {
+
+}
+
 
 const handlePostNewCommentButton = (e) => {
   console.log(e);
   console.log(e.target.dataset.techniqueid);
   let currentPath = e.view.window.location.pathname;
   let comment = e.target.previousElementSibling.value;
-  let url = '/techniques/api/' + e.target.dataset.techniqueid;
+  let url = '/api/techniques/' + e.target.dataset.techniqueid;
   let currentDate = getCurrentDate();
   $.ajax({
     method: 'POST',
@@ -48,7 +76,7 @@ const handleSubmitNewTechniqueButton = (e) => {
   console.log(e);
   let shortDescription = e.target.previousElementSibling.previousElementSibling.value;
   let detailedDescription = e.target.previousElementSibling.value;
-  let url = '/disorders/api/' + e.target.dataset.disorderId + '/techniques';
+  let url = '/api/disorders/' + e.target.dataset.disorderId + '/techniques';
   let currentPath = e.view.window.location.pathname;
   $.ajax({
     method: "POST",

@@ -1,6 +1,10 @@
 const express = require('express');
 const techniqueRoutes = express.Router();
 const db = require('../models');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+techniqueRoutes.use(bodyParser.json());
+techniqueRoutes.use(bodyParser.urlencoded({ extended: true }));
 
 techniqueRoutes.get('/', (req, res) => {
   res.render('./techniques/index', {
@@ -20,18 +24,5 @@ techniqueRoutes.get('/:id', (req, res) => {
 })
 
 
-techniqueRoutes.post('/api/:id', (req, res) => {
-  let newComment = new db.Comments(req.body);
-  newComment.save();
-  console.log(newComment);
-  db.Technique.findByIdAndUpdate(req.params.id,
-    {$push: {comments: newComment}},
-    {safe: true, upsert: true, new: true}, (err, technique) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.status(200).send(technique);
-  })
-})
 
 module.exports = techniqueRoutes;
