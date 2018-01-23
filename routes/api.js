@@ -88,8 +88,6 @@ apiRoutes.post('/disorders/:disorder_id/techniques', (req, res) => {
 apiRoutes.post('/techniques/:technique_id', (req, res) => {
   let newComment = new db.Comments(req.body);
   newComment.save();
-  console.log(newComment);
-  console.log(req.params.technique_id);
   db.Technique.findByIdAndUpdate(req.params.technique_id,
     {$push: {comments: newComment}},
     {safe: true, upsert: true, new: true}, (err, technique) => {
@@ -98,12 +96,22 @@ apiRoutes.post('/techniques/:technique_id', (req, res) => {
     }
     res.status(200).send(technique);
   })
-  // db.Technique.findById(req.params.technique_id, (err, technique) => {
-  //   if (err) {
-  //     res.status(500).send(err);
-  //   }
-  //   res.status(200).send(technique);
-  // })
+})
+
+apiRoutes.delete('/disorders/:disorder_id/techniques/:technique_id', (req, res) => {
+  db.Technique.remove( {_id: req.params.technique_id}, (err, technique) => {
+    if (err) {
+      console.log('error removing technique from technique db');
+    }
+  })
+  db.Disorder.findOneAndUpdate({ _id: req.params.disorder_id },
+    { $pull: { techniques: { _id: req.params.technique_id}}},
+    (err, model) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.status(200).send(model);
+    })
 })
 
 module.exports = apiRoutes;

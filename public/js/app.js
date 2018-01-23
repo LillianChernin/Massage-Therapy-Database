@@ -38,8 +38,20 @@ const handleUpdateTechniqueButton = (e) => {
 
 }
 
+// disorders/:disorder_id/techniques/:technique_id
 const handleDeleteTechniqueButton = (e) => {
-
+  let currentPath = e.view.window.location.pathname;
+  let url = '/api' + currentPath + '/' + e.target.dataset.techniqueid;
+  $.ajax({
+    method: 'DELETE',
+    url: url,
+    success: () => {
+      console.log("succesful removal of technique");
+    },
+    error: () => {
+      console.log("error deleting technique");
+    }
+  })
 }
 
 

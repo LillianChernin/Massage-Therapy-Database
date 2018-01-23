@@ -46,16 +46,14 @@ disorderRoutes.get('/:id/techniques', (req, res) => {
 })
 
 disorderRoutes.get('/:id/techniques/:technique_id', (req, res) => {
-  let currentTechnique;
+  let disorderName;
   db.Disorder.findById(req.params.id, (err, disorder) => {
-    for (let i = 0; i < disorder.techniques.length; i++) {
-      if (disorder.techniques[i]._id == req.params.technique_id) {
-        currentTechnique = disorder.techniques[i];
-      }
-    }
+    disorderName = disorder.name;
+  })
+  db.Technique.findById(req.params.technique_id, (err, technique) => {
     res.render('./techniques/individual-technique', {
-      documentTitle: disorder.name + " - " + currentTechnique.shortDescription,
-      data: currentTechnique,
+      documentTitle: disorderName + ' - ' + technique.shortDescription,
+      data: technique,
       disorderId: req.params.id
     })
   })
