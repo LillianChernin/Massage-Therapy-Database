@@ -98,6 +98,29 @@ apiRoutes.post('/techniques/:technique_id', (req, res) => {
   })
 })
 
+apiRoutes.put('/disorders/:disorder_id/techniques/:technique_id', (req, res) => {
+  db.Technique.findOne({_id: req.params.technique_id}, (err, technique) => {
+    technique.shortDescription = req.body.shortDescription;
+    technique.detailedDescription = req.body.detailedDescription;
+    technique.save((err, saved) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+    });
+  })
+  db.Disorder.findOne({_id: req.params.disorder_id}, (err, foundDisorder) => {
+    let foundTechnique = foundDisorder.techniques.id(req.params.technique_id);
+    foundTechnique.shortDescription = req.body.shortDescription;
+    foundTechnique.detailedDescription = req.body.detailedDescription;
+    foundDisorder.save((err, saved) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.json(foundTechnique);
+    })
+  })
+})
+
 apiRoutes.delete('/disorders/:disorder_id/techniques/:technique_id', (req, res) => {
   db.Technique.remove( {_id: req.params.technique_id}, (err, technique) => {
     if (err) {
@@ -113,5 +136,7 @@ apiRoutes.delete('/disorders/:disorder_id/techniques/:technique_id', (req, res) 
       res.status(200).send(model);
     })
 })
+
+
 
 module.exports = apiRoutes;

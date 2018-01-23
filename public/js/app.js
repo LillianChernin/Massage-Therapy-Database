@@ -14,28 +14,62 @@ $(document).ready(() => {
     handlePostNewCommentButton(e);
   })
   $('.updateTechniqueButton').on('click', (e) => {
-    console.log(e);
     enterEditTechniqueMode(e);
-
   })
   $('.deleteTechniqueButton').on('click', (e) => {
     handleDeleteTechniqueButton(e);
   })
+  $('.saveChangesToTechniqueButton').on('click', (e) => {
+    handleSaveChangesToTechniqueButton(e);
+  })
 })
 
 const enterEditTechniqueMode = (e) => {
-  // e.target.parentNode.childNodes[1].classList.add('hidden');
-  // e.target.parentNode.childNodes[3].classList.add('hidden');
-  e.target.parentNode.childNodes[2].classList.remove('hidden');
-  e.target.parentNode.childNodes[5].classList.remove('hidden');
+  e.target.parentNode.childNodes[7].classList.add('hidden');
+  e.target.parentNode.childNodes[10].classList.add('hidden');
+  e.target.classList.add('hidden');
+  e.target.parentNode.childNodes[8].classList.remove('hidden');
+  e.target.parentNode.childNodes[11].classList.remove('hidden');
+  e.target.parentNode.childNodes[15].classList.remove('hidden');
+  let getRequestUrl = '/api' + e.view.window.location.pathname;
   $.ajax({
     method: "GET",
-
+    url: getRequestUrl,
+    success: (json) => {
+      e.target.parentNode.childNodes[8].value = json.shortDescription;
+      e.target.parentNode.childNodes[11].value = json.detailedDescription;
+    },
+    error: () => {
+      console.log("error retrieving current technique description");
+    }
   })
 }
 
-const handleUpdateTechniqueButton = (e) => {
-
+const handleSaveChangesToTechniqueButton = (e) => {
+  let updatedShortDescription = e.target.parentNode.childNodes[8].value;
+  let updatedDetailedDescription = e.target.parentNode.childNodes[11].value;
+  let putRequestUrl = '/api' + e.view.window.location.pathname;
+  $.ajax({
+    method: "PUT",
+    url: putRequestUrl,
+    data: {
+      shortDescription: updatedShortDescription,
+      detailedDescription: updatedDetailedDescription
+    },
+    success: (json) => {
+      e.target.parentNode.childNodes[7].classList.remove('hidden');
+      e.target.parentNode.childNodes[10].classList.remove('hidden');
+      e.target.parentNode.childNodes[13].classList.remove('hidden');
+      e.target.parentNode.childNodes[8].classList.add('hidden');
+      e.target.parentNode.childNodes[11].classList.add('hidden');
+      e.target.parentNode.childNodes[15].classList.add('hidden');
+      e.target.parentNode.childNodes[7].innerHTML = json.shortDescription;
+      e.target.parentNode.childNodes[10].innerHTML = json.detailedDescription;
+    },
+    error: () => {
+      console.log("error updating technique!");
+    }
+  })
 }
 
 // disorders/:disorder_id/techniques/:technique_id
