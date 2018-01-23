@@ -68,20 +68,18 @@ apiRoutes.get('/techniques/:id/comments', (req, res) => {
 
 
 apiRoutes.post('/disorders/:disorder_id/techniques', (req, res) => {
+  let jsonResponse = [];
   let newTechnique = new db.Technique(req.body);
   newTechnique.save();
-  console.log(newTechnique);
   db.Disorder.findByIdAndUpdate(req.params.disorder_id,
   {$push: {techniques: newTechnique}},
   {safe: true, upsert: true, new: true}, (err, disorder) => {
     if (err) {
       res.status(500).send(err);
     }
-    console.log(disorder);
-    res.render('./disorders/techniques-by-disorder-id', {
-      documentTitle: disorder.name + ' - Techniques',
-      data: disorder
-    })
+    jsonResponse.push(disorder);
+    jsonResponse.push(newTechnique);
+    res.status(200).send(jsonResponse);
   })
 })
 
@@ -94,7 +92,7 @@ apiRoutes.post('/techniques/:technique_id', (req, res) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.status(200).send(technique);
+    res.status(200).send(newComment);
   })
 })
 

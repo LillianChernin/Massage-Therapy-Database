@@ -74,6 +74,7 @@ const handleSaveChangesToTechniqueButton = (e) => {
 
 // disorders/:disorder_id/techniques/:technique_id
 const handleDeleteTechniqueButton = (e) => {
+  let techniqueBox = e.target.parentNode;
   let currentPath = e.view.window.location.pathname;
   let url = '/api' + currentPath + '/' + e.target.dataset.techniqueid;
   $.ajax({
@@ -81,6 +82,7 @@ const handleDeleteTechniqueButton = (e) => {
     url: url,
     success: () => {
       console.log("succesful removal of technique");
+      techniqueBox.parentNode.removeChild(techniqueBox);
     },
     error: () => {
       console.log("error deleting technique");
@@ -133,13 +135,14 @@ const handleSubmitNewTechniqueButton = (e) => {
       detailedDescription: detailedDescription
     },
     success: (json) => {
-      e.target.previousElementSibling.previousElementSibling.setAttribute('value', '');
-      e.target.previousElementSibling.setAttribute('value', '');
-      console.log('success');
-      $.ajax({
-        method: "GET",
-        url: currentPath
-      })
+      e.target.previousElementSibling.previousElementSibling.value = '';
+      e.target.previousElementSibling.value = '';
+      // let newTechniqueHtml = getNewTechniqueHtml(json);
+      // let newTechniqueDiv = document.createElement('div');
+      // console.log(newTechniqueHtml);
+      // newTechniqueDiv.insertAdjacentHTML('beforeend', newTechniqueHtml[2]);
+      // e.target.parentNode.parentNode.prepend(newTechniqueDiv);
+      // console.log(json);
     },
     error: () => {
       console.log("ajax post error!");
@@ -153,4 +156,14 @@ const getCurrentDate = () => {
   let dd = today.getDate();
   let mm = today.getMonth() + 1;
   return mm + "/" + dd + "/" + yyyy;
+}
+
+const getNewTechniqueHtml = (json) => {
+let html = [];
+html.push('<fieldset></fieldset>');
+html.push('<h3></h3>');
+html.push(('<a href="http://localhost:3000/disorders/' + json[0]._id + '/techniques/' + json[1]._id + '>' + json[1].shortDescription + '</a>'));
+html.push('<p>' + json[1].detailedDescription + '</p>');
+html.push('<button class="deleteTechniqueButton" data-disorderId="' + json[0]._id + " data-techniqueId=" + json[1]._id + '>Delete Technique</button>');
+  return html;
 }

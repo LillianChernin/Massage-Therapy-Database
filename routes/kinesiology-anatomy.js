@@ -24,7 +24,6 @@ kaRoutes.get('/muscles', (req, res) => {
       data: muscles
     })
   })
-
 })
 
 module.exports = kaRoutes;
