@@ -61,10 +61,11 @@ const handlePostNewCommentButton = (e) => {
     success: (json) => {
       e.target.previousElementSibling.value = "";
       console.log('success');
-      $.ajax({
-        method: 'GET',
-        url: currentPath
-      })
+      console.log(json);
+      // $.ajax({
+      //   method: 'GET',
+      //   url: currentPath
+      // })
     },
     error: () => {
       console.log("ajax post comment error");
