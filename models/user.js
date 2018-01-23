@@ -6,8 +6,7 @@ const userSchema = new Schema ({
   google: {
     id: String,
     access_token: String,
-    email: String,
-    accessLevel: String
+    email: String
   }
 });
 userSchema.plugin(findOrCreate);

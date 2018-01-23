@@ -7,8 +7,11 @@ techniqueRoutes.use(bodyParser.json());
 techniqueRoutes.use(bodyParser.urlencoded({ extended: true }));
 
 techniqueRoutes.get('/', (req, res) => {
-  res.render('./techniques/index', {
-    documentTitle: "Massage Techniques"
+  db.Technique.find((err, techniques) => {
+    res.render('./techniques/index', {
+      documentTitle: "Massage Techniques",
+      data: techniques
+    })
   })
 })
 techniqueRoutes.get('/:id', (req, res) => {
